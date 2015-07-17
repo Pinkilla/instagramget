@@ -2,11 +2,12 @@
 
     lastinstagram.sh <account> 
 
-Obtain last instagram image from an account. De best way to use this script is
-with *cron*. Just add to your crontab file this line: 
+Obtain last instagram image from an account. The best way to use this script is
+with *cron*. Just make sure the script is executabe and add to your crontab 
+file this line: 
 
     $ crontab -e 
-    0 * * * * /elsewhere/lastinstagram.sh 
+    0 * * * * (cd /elsewhere; ./lastinstagram.sh) 
 
 ## Dependencies
 
