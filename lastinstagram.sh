@@ -1,7 +1,8 @@
 #!/bin/bash
 
-USER=mazaurette
+USER=default
 MAIL=pb@namok.be
+MESSAGE="Instagam image from awesome person"
 
 # Init. current and previous file must
 if [ ! -f current ]; then 
@@ -22,7 +23,7 @@ if [ $? -eq 1 ]; then
 	# Send by mail
     NAME=$(/bin/cat current)
     NAME=${NAME##*/}
-    echo "Plop" | /usr/bin/mail -s "Instagram from Maïa" -A img/$NAME $MAIL
+    echo "Plop" | /usr/bin/mail -s $MESSAGE -A img/$NAME $MAIL
 
 fi
 
