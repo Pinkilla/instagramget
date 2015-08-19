@@ -23,7 +23,7 @@ if [ $? -eq 1 ]; then
 	# Send by mail
     NAME=$(/bin/cat current)
     NAME=${NAME##*/}
-    echo "Plop" | /usr/bin/mail -s $MESSAGE -A img/$NAME $MAIL
+    echo "Plop" | /usr/bin/mail -s "$MESSAGE" -A img/$NAME $MAIL
 
 fi
 
