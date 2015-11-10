@@ -14,15 +14,16 @@ if [ ! -f previous ]; then
 fi
 
 /usr/bin/phantomjs --ssl-protocol=any instagram-getlastimageurl.js $USER \
-	> current
+	> httpfile
+/usr/bin/perl -pe 's/^http.*\/(.+)$/$1/' httpfile > current
 /usr/bin/diff current previous > /dev/null
 if [ $? -eq 1 ]; then
-	/usr/bin/wget --directory-prefix img $(/bin/cat current)
+	/usr/bin/wget --directory-prefix img $(/bin/cat httpfile)
 	/bin/cp current previous
 	
 	# Send by mail
     NAME=$(/bin/cat current)
-    NAME=${NAME##*/}
+    #inutile NAME=${NAME##*/}
     echo "Plop" | /usr/bin/mail -s "$MESSAGE" -A img/$NAME $MAIL
 
 fi
