@@ -9,7 +9,7 @@ if (system.args.length === 2){
 }
 url = 'instagram.com/' + account
 
-page.open('http://' + url, function(status) {
+page.open('https://' + url, function(status) {
 	if (status === 'success'){
 		image_url = page.evaluate(function() {
 			return window.pImage_0.src;
